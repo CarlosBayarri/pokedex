@@ -1,1 +1,12 @@
-<p>list works!</p>
+<div fxLayout="row wrap" fxFlex="100" *ngIf="pokemonResponse$ | async as pokemonResponse">
+    {{pokemonResponse | json}}
+    <app-pokemon-card *ngFor="let pokemon of pokemonResponse.results"></app-pokemon-card>
+
+    <div fxLayout="row" fxFlex="100">
+        <button mat-button (click)="goUrl(pokemonResponse.previous)">Previous</button>
+        <div fxFlex="50"></div>
+        <button mat-button (click)="goUrl(pokemonResponse.next)">Next</button>
+    </div>
+
+
+</div>

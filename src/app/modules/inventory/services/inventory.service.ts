@@ -13,11 +13,11 @@ export class InventoryService {
 
   constructor(private inventoryHttpService: InventoryHttpService, private store: Store<AppState>) { }
 
-  callPokemonList(): void {
-    this.inventoryHttpService.getPokemonList().pipe(
+  callPokemonList(url?: string): void {
+    this.inventoryHttpService.getPokemonList(url).pipe(
       take(1),
-      tap((pokemonResponse: PokemonResponse) => this.store.dispatch(actions.setList({pokemonList: pokemonResponse.results}))),
-      tap((pokemonResponse: PokemonResponse) => this.store.dispatch(actions.setResponse({pokemonResponse: pokemonResponse})))
+      tap((pokemonResponse: PokemonResponse) => this.store.dispatch(actions.setList({list: pokemonResponse.results}))),
+      tap((pokemonResponse: PokemonResponse) => this.store.dispatch(actions.setResponse({response: pokemonResponse})))
     ).subscribe(console.log);
   }
 

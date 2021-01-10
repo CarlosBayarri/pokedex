@@ -8,12 +8,12 @@ import { PokemonResponse } from 'src/app/shared/models/pokemonResponse';
 })
 export class InventoryHttpService {
 
-  endpoint = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=20';
+  endpoint = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0';
 
   constructor(private http: HttpClient) { }
 
-  getPokemonList(): Observable<PokemonResponse> {
-    return this.http.get<PokemonResponse>(this.endpoint);
+  getPokemonList(url?: string): Observable<PokemonResponse> {
+    return this.http.get<PokemonResponse>(url ? url : this.endpoint);
   }
   
 }

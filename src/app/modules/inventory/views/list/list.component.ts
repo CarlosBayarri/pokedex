@@ -4,6 +4,7 @@ import { AppState } from 'src/app/app.reducer';
 import { InventoryService } from '../../services/inventory.service';
 import { Observable, Subscription } from 'rxjs';
 import { PokemonResponse } from 'src/app/shared/models/pokemonResponse';
+import { pluck } from 'rxjs/operators';
 
 @Component({
   selector: 'app-list',
@@ -17,9 +18,14 @@ export class ListComponent implements OnInit {
 
   constructor(private store: Store<AppState>, private inventoryService: InventoryService) { }
 
+  goUrl(url) {
+    this.inventoryService.callPokemonList(url);
+  }
+
   ngOnInit(): void {
     console.log('[INIT] List')
-    this.inventoryService.callPokemonList();
+    this.inventoryService.callPokemonList(null);
+    this.pokemonResponse$ = this.store.select('inventory').pipe(pluck('response'));
     /*this.inventorySubscription = this.store.select('inventory').subscribe(({inventory}) => {
 
     });*/

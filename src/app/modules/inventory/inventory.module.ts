@@ -12,7 +12,7 @@ import { InventoryRoutesModule } from './inventory-routes.module';
   declarations: [ListComponent, DetailComponent, RandomButtonComponent, PokemonCardComponent],
   imports: [
     CommonModule,
-    InventoryRoutesModule,
+    InventoryRoutesModule
   ]
 })
 export class InventoryModule { }
