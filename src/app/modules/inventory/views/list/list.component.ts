@@ -26,9 +26,6 @@ export class ListComponent implements OnInit {
     console.log('[INIT] List')
     this.inventoryService.callPokemonList(null);
     this.pokemonResponse$ = this.store.select('inventory').pipe(pluck('response'));
-    /*this.inventorySubscription = this.store.select('inventory').subscribe(({inventory}) => {
-
-    });*/
   }
 
 }

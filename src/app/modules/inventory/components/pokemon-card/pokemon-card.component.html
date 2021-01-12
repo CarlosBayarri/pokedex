@@ -1,1 +1,10 @@
-<div>{{pokemon | json}}</div>
+
+<button mat-button class="pokemon-card">
+
+    <img [src]="'https://img.pokemondb.net/artwork/' + pokemon.name + '.jpg'">
+
+    <p>{{pokemon.name}}</p>
+
+</button>
+
+

@@ -16,7 +16,6 @@ export class InventoryService {
   callPokemonList(url?: string): void {
     this.inventoryHttpService.getPokemonList(url).pipe(
       take(1),
-      tap((pokemonResponse: PokemonResponse) => this.store.dispatch(actions.setList({list: pokemonResponse.results}))),
       tap((pokemonResponse: PokemonResponse) => this.store.dispatch(actions.setResponse({response: pokemonResponse})))
     ).subscribe(console.log);
   }
