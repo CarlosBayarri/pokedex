@@ -1,10 +1,9 @@
 
 <button mat-button class="pokemon-card">
-
-    <img [src]="'https://img.pokemondb.net/artwork/' + pokemon.name + '.jpg'">
-
-    <p>{{pokemon.name}}</p>
-
+    <div class="pokemon-container">
+        <div class="pokemon-background" [style.backgroundImage]="'url(https://img.pokemondb.net/artwork/' + pokemon.name + '.jpg)'"></div>
+        <p class="pokemon-name">{{pokemon.name}}</p>
+    </div>
 </button>
 
 

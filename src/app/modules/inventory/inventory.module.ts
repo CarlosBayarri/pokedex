@@ -5,6 +5,7 @@ import { DetailComponent } from './views/detail/detail.component';
 import { InventoryRoutesModule } from './inventory-routes.module';
 import { MaterialModule } from 'src/app/material.module';
 import { ComponentsModule } from './components/components.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -14,7 +15,8 @@ import { ComponentsModule } from './components/components.module';
     CommonModule,
     MaterialModule,
     ComponentsModule,
-    InventoryRoutesModule
+    InventoryRoutesModule,
+    FlexLayoutModule
     
   ]
 })

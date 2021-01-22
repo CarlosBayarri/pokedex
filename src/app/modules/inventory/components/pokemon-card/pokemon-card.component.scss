@@ -1,13 +1,32 @@
 
 .pokemon-card {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
+    transition: transform .2s; 
 
-    img {
+    .pokemon-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
         width: 100%;
+        .pokemon-background {
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-size: contain;
+            background-origin: content-box;
+            background-repeat: no-repeat;
+        }
+        
+        .pokemon-name {
+            text-transform: capitalize;
+            color: grey;
+            font-size: large;
+        }
     }
+    
 
-    p {
-        text-transform: capitalize;
+    &:hover {
+        transform: scale(1.05);
     }
 }

@@ -1,13 +1,12 @@
-<div class="container flex" *ngIf="pokemonResponse$ | async as pokemonResponse">
+<div class="container" fxLayout="column" *ngIf="pokemonResponse$ | async as pokemonResponse">
 
     <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start">
         <app-pokemon-card *ngFor="let pokemon of pokemonResponse.results" [pokemon]="pokemon"></app-pokemon-card>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
-        <button mat-button (click)="goUrl(pokemonResponse.previous)">Previous</button>
-        <div fxFlex="50"></div>
-        <button mat-button (click)="goUrl(pokemonResponse.next)">Next</button>
+    <div class="list-bottom-bar" fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+        <button mat-fab color="primary" (click)="goUrl(pokemonResponse.previous)"><mat-icon>arrow_back</mat-icon></button>
+        <button mat-fab color="primary" (click)="goUrl(pokemonResponse.next)"><mat-icon>arrow_forward</mat-icon></button>
     </div>
 
 </div>
