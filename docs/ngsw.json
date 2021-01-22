@@ -1,0 +1,91 @@
+{
+  "configVersion": 1,
+  "timestamp": 1611338877405,
+  "index": "https://carlosbayarri.github.io/pokedex/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://carlosbayarri.github.io/pokedex/5-es2015.79b2fd7b9911f3499b4e.js",
+        "https://carlosbayarri.github.io/pokedex/5-es5.79b2fd7b9911f3499b4e.js",
+        "https://carlosbayarri.github.io/pokedex/favicon.ico",
+        "https://carlosbayarri.github.io/pokedex/index.html",
+        "https://carlosbayarri.github.io/pokedex/main-es2015.654bbfdc73563dd358ad.js",
+        "https://carlosbayarri.github.io/pokedex/main-es5.654bbfdc73563dd358ad.js",
+        "https://carlosbayarri.github.io/pokedex/manifest.webmanifest",
+        "https://carlosbayarri.github.io/pokedex/polyfills-es2015.a93358e1cf8813cb4159.js",
+        "https://carlosbayarri.github.io/pokedex/polyfills-es5.f78a388c7e0e9167ed89.js",
+        "https://carlosbayarri.github.io/pokedex/runtime-es2015.921802235f0ab1da3ed8.js",
+        "https://carlosbayarri.github.io/pokedex/runtime-es5.921802235f0ab1da3ed8.js",
+        "https://carlosbayarri.github.io/pokedex/styles.2d919b0a07b86607af18.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://carlosbayarri.github.io/pokedex/assets/icons/icon-128x128.png",
+        "https://carlosbayarri.github.io/pokedex/assets/icons/icon-144x144.png",
+        "https://carlosbayarri.github.io/pokedex/assets/icons/icon-152x152.png",
+        "https://carlosbayarri.github.io/pokedex/assets/icons/icon-192x192.png",
+        "https://carlosbayarri.github.io/pokedex/assets/icons/icon-384x384.png",
+        "https://carlosbayarri.github.io/pokedex/assets/icons/icon-512x512.png",
+        "https://carlosbayarri.github.io/pokedex/assets/icons/icon-72x72.png",
+        "https://carlosbayarri.github.io/pokedex/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://carlosbayarri.github.io/pokedex/5-es2015.79b2fd7b9911f3499b4e.js": "28038c0e5afcabeeda97e53650cee195af7f297a",
+    "https://carlosbayarri.github.io/pokedex/5-es5.79b2fd7b9911f3499b4e.js": "027b090a18e5c8e14814e8a1780c3f75d0930b2f",
+    "https://carlosbayarri.github.io/pokedex/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://carlosbayarri.github.io/pokedex/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://carlosbayarri.github.io/pokedex/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://carlosbayarri.github.io/pokedex/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://carlosbayarri.github.io/pokedex/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://carlosbayarri.github.io/pokedex/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://carlosbayarri.github.io/pokedex/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://carlosbayarri.github.io/pokedex/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://carlosbayarri.github.io/pokedex/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://carlosbayarri.github.io/pokedex/index.html": "cd51f03f32b25a111420f477336491077202879d",
+    "https://carlosbayarri.github.io/pokedex/main-es2015.654bbfdc73563dd358ad.js": "2a254ba154f315d1030cc5e37fc5c5622a69bf41",
+    "https://carlosbayarri.github.io/pokedex/main-es5.654bbfdc73563dd358ad.js": "76e38367e4620fd7329da830a016cfafed61aa50",
+    "https://carlosbayarri.github.io/pokedex/manifest.webmanifest": "2b3cb9698d8f8a7914f26f5388087dd00d870ac9",
+    "https://carlosbayarri.github.io/pokedex/polyfills-es2015.a93358e1cf8813cb4159.js": "65c537467564ee0ba776b629f71ed3413413a7cb",
+    "https://carlosbayarri.github.io/pokedex/polyfills-es5.f78a388c7e0e9167ed89.js": "214f4b46e6da9fadd1fae2439f1791ee1ad0f563",
+    "https://carlosbayarri.github.io/pokedex/runtime-es2015.921802235f0ab1da3ed8.js": "6c9dda72b581d563e131042029369fb49a19b9c7",
+    "https://carlosbayarri.github.io/pokedex/runtime-es5.921802235f0ab1da3ed8.js": "9e07c3daec1716bbbc5ef7a0edbfd0bb56bb5887",
+    "https://carlosbayarri.github.io/pokedex/styles.2d919b0a07b86607af18.css": "de9466f031521451f6ebdb69e63b2290297dbad4"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
