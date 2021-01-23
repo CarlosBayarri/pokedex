@@ -12,9 +12,14 @@ import * as actions from '../../../store/actions';
 export class RegionsService {
 
   private images = {
-    kanto: 'https://cdn.bulbagarden.net/upload/2/25/LGPE_Kanto_Map.png',
-    'original-johto': 'https://cdn.bulbagarden.net/upload/6/64/JohtoMap.png',
-    hoenn: 'https://cdn.bulbagarden.net/upload/8/85/Hoenn_ORAS.png'
+    'national': 'assets/icons/firefox/firefox-general-256-256.png',
+    'kanto': 'https://cdn.bulbagarden.net/upload/2/25/LGPE_Kanto_Map.png',
+    'updated-johto': 'https://cdn.bulbagarden.net/upload/6/64/JohtoMap.png',
+    'updated-hoenn': 'https://cdn.bulbagarden.net/upload/8/85/Hoenn_ORAS.png',
+    'extended-sinnoh': 'https://cdn.bulbagarden.net/upload/7/74/Pt_Sinnoh.png',
+    'updated-unova': 'https://cdn.bulbagarden.net/upload/thumb/f/fc/Unova_B2W2_alt.png/800px-Unova_B2W2_alt.png',
+    'kalos-central': 'https://cdn.bulbagarden.net/upload/thumb/8/8a/Kalos_alt.png/800px-Kalos_alt.png',
+    'updated-alola': 'https://cdn.bulbagarden.net/upload/thumb/0/0b/Alola_USUM_artwork.png/800px-Alola_USUM_artwork.png',
   }
 
   constructor(private regionHttpService: RegionsHttpService, private store: Store<AppState>) { }

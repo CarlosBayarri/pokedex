@@ -1,7 +1,9 @@
 <div class="container" fxLayout="column" *ngIf="pokemonResponse$ | async as pokemonResponse">
 
-    <div fxLayout="row" fxLayoutAlign="flex-start" *ngIf="regionResponse$ | async as regionResponse">
-        <app-region-card *ngFor="let region of regionResponse.results" [region]="region"></app-region-card>
+    <div style="overflow: auto;" fxLayout="row" fxLayoutAlign="flex-start" *ngIf="regionResponse$ | async as regionResponse">
+        <div *ngFor="let region of regionResponse.results">
+            <app-region-card *ngIf="region.image" [region]="region"></app-region-card>
+        </div>
     </div>
     <mat-grid-list cols="4" rowHeight="200px">
         <mat-grid-tile *ngFor="let pokemon of pokemonResponse.results">
