@@ -1,7 +1,7 @@
 
 .pokemon-card {
-    width: 250px;
-    height: 250px;
+    width: 10rem;
+    height: 200px;
     transition: transform .2s; 
 
     .pokemon-container {
@@ -22,6 +22,8 @@
             text-transform: capitalize;
             color: grey;
             font-size: large;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
     
@@ -30,3 +32,15 @@
         transform: scale(1.05);
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .pokemon-card {
+        width: 5rem;
+        height: 100px;
+        padding: 0;
+
+        .pokemon-name {
+            font-size: 100% !important;
+        }
+    }
+  }

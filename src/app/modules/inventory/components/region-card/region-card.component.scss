@@ -1,0 +1,35 @@
+
+.region-card {
+
+    height: 7.5rem;
+    width: 7.5rem;
+    padding: 1em;
+    margin: 0 1em;
+    border-radius: 50%;
+    padding: 0;
+    overflow: hidden;
+
+    .region-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        .region-background {
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-size: contain;
+            background-origin: content-box;
+            background-repeat: no-repeat;
+        }
+        
+        .region-name {
+            text-transform: capitalize;
+            color: grey;
+            font-size: large;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+}
