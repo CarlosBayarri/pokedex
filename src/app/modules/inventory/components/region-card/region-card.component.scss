@@ -18,18 +18,30 @@
             height: 100%;
             width: 100%;
             background-position: center;
-            background-size: contain;
+            background-size: cover;
             background-origin: content-box;
             background-repeat: no-repeat;
-        }
-        
-        .region-name {
-            text-transform: capitalize;
-            color: grey;
-            font-size: large;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
     }
 
 }
+
+.region-name {
+    text-transform: capitalize;
+    color: grey;
+    font-size: large;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .region-card {
+        width: 5rem;
+        height: 5rem;
+        padding: 0;
+    }
+    .region-name {
+        font-size: 80% !important;
+    }
+  }

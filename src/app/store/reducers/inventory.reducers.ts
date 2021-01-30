@@ -1,25 +1,24 @@
 import { createReducer, on } from '@ngrx/store';
+import { PokemonIndex } from 'src/app/shared/models/pokemon-index';
 import { Pokemon } from 'src/app/shared/models/pokemonDetail';
-import { PokemonList } from 'src/app/shared/models/pokemonList';
 import * as actions from '../actions';
-import { PokemonResponse } from '../../shared/models/pokemonResponse';
 
 export interface InventoryState {
-    pokemon: Pokemon,
-    response: PokemonResponse
+    pokemon: Pokemon;
+    inventory: PokemonIndex[];
 }
 
 export const inventoryInitialState: InventoryState = {
     pokemon: null,
-    response: null
-}
+    inventory: null
+};
 
 const _InventoryReducer = createReducer(inventoryInitialState,
 
-    on(actions.setDetail, (state, {pokemon}) => ({ ...state, pokemon: pokemon })),
-    on(actions.setResponse, (state, {response}) => ({ ...state, response: response })),
+    on(actions.setDetail, (state, {pokemon}) => ({ ...state, pokemon })),
+    on(actions.setInventory, (state, {inventory}) => ({ ...state, inventory })),
     on(actions.unSetDetail, (state) => ({ ...state, pokemon: null})),
-    on(actions.unSetResponse, (state) => ({ ...state, response: null})),
+    on(actions.unSetInventory, (state) => ({ ...state, inventory: null})),
 
 );
 

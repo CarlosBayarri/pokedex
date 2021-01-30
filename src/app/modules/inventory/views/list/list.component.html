@@ -1,19 +1,21 @@
-<div class="container" fxLayout="column" *ngIf="pokemonResponse$ | async as pokemonResponse">
-
-    <div style="overflow: auto;" fxLayout="row" fxLayoutAlign="flex-start" *ngIf="regionResponse$ | async as regionResponse">
-        <div *ngFor="let region of regionResponse.results">
-            <app-region-card *ngIf="region.image" [region]="region"></app-region-card>
+<div class="container" fxLayout="column">
+    <!--<mat-grid-list cols="5" *ngIf="regionResponse$ | async as regionResponse">
+            <div *ngFor="let region of regionResponse.results">
+                <mat-grid-tile *ngIf="region.image">
+                    <app-region-card [region]="region" (click)="goRegion(region)"></app-region-card>
+                </mat-grid-tile>
+            </div>
+    </mat-grid-list>-->
+    
+        <div class="region-container" fxLayout="row wrap" fxLayoutAlign="center" *ngIf="regionResponse$ | async as regionResponse">
+            <div *ngFor="let region of regionResponse.results">
+                <app-region-card *ngIf="region.image" [region]="region" (click)="goRegion(region)"></app-region-card>
+            </div>
         </div>
-    </div>
-    <mat-grid-list cols="4" rowHeight="200px">
-        <mat-grid-tile *ngFor="let pokemon of pokemonResponse.results">
+    
+    <mat-grid-list cols="4" rowHeight="200px" *ngIf="inventory$ | async as inventory">
+        <mat-grid-tile *ngFor="let pokemon of inventory">
             <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
         </mat-grid-tile>
     </mat-grid-list>
-
-    <div class="list-bottom-bar" fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
-        <button mat-fab color="primary" (click)="goUrl(pokemonResponse.previous)"><mat-icon>arrow_back</mat-icon></button>
-        <button mat-fab color="primary" (click)="goUrl(pokemonResponse.next)"><mat-icon>arrow_forward</mat-icon></button>
-    </div>
-
 </div>

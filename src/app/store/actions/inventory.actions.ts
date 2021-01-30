@@ -1,10 +1,9 @@
 import { createAction, props } from '@ngrx/store';
 import { Pokemon } from 'src/app/shared/models/pokemonDetail';
-import { PokemonList } from 'src/app/shared/models/pokemonList';
-import { PokemonResponse } from '../../shared/models/pokemonResponse';
+import { PokemonIndex } from '../../shared/models/pokemon-index';
 
-export const setResponse = createAction('[Inventory] setResponse', props<{ response: PokemonResponse}>());
+export const setInventory = createAction('[Inventory] setInventory', props<{ inventory: PokemonIndex[]}>());
 export const setDetail = createAction('[Inventory] setDetail', props<{ pokemon: Pokemon}>());
 
-export const unSetResponse = createAction('[Inventory] unSetResponse');
+export const unSetInventory = createAction('[Inventory] unSetInventory');
 export const unSetDetail = createAction('[Inventory] unSetDetail');

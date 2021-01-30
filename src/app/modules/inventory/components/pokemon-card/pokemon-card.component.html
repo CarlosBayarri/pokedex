@@ -1,8 +1,8 @@
 
 <button mat-button class="pokemon-card">
     <div class="pokemon-container">
-        <div class="pokemon-background" [style.backgroundImage]="'url(https://img.pokemondb.net/artwork/' + pokemon.name + '.jpg)'"></div>
-        <p class="pokemon-name">{{pokemon.name}}</p>
+        <img class="pokemon-background" appLazyLoadImage [src]="'https://img.pokemondb.net/artwork/' + pokemon.pokemon_species.name + '.jpg'">
+        <p class="pokemon-name">#{{pokemon.entry_number}} {{pokemon.pokemon_species.name}}</p>
     </div>
 </button>
 

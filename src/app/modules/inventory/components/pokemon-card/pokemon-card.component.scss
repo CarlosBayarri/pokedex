@@ -12,12 +12,11 @@
         .pokemon-background {
             height: 100%;
             width: 100%;
-            background-position: center;
-            background-size: contain;
-            background-origin: content-box;
-            background-repeat: no-repeat;
+            max-height: 150px;
+            max-width: 125px;
+            object-fit: contain;
         }
-        
+
         .pokemon-name {
             text-transform: capitalize;
             color: grey;

@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { LazyLoadImageDirective } from './shared/directives/lazy-load-image.directive';
+import { DirectivesModule } from './shared/directives/directives.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    DirectivesModule,
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
