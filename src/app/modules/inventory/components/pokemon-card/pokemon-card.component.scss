@@ -34,10 +34,8 @@
 
 @media only screen and (max-width: 600px) {
     .pokemon-card {
-        width: 5rem;
-        height: 100px;
-        padding: 0;
-
+        width: auto;
+        height: auto;
         .pokemon-name {
             font-size: 100% !important;
         }

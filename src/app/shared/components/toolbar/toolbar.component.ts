@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.reducer';
+import { Observable } from 'rxjs';
+import { pluck } from 'rxjs/operators';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  public isLoading$: Observable<boolean>;
+
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
+    this.isLoading$ = this.store.select('ui').pipe(pluck('isLoading'));
   }
 
 }

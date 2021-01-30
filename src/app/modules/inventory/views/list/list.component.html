@@ -9,11 +9,16 @@
     
         <div class="region-container" fxLayout="row wrap" fxLayoutAlign="center" *ngIf="regionResponse$ | async as regionResponse">
             <div *ngFor="let region of regionResponse.results">
-                <app-region-card *ngIf="region.image" [region]="region" (click)="goRegion(region)"></app-region-card>
+                <div *ngIf="regionSelected$ | async as regionSelected">
+                    <app-region-card *ngIf="region.image" 
+                        [region]="region" [isSelected]="regionSelected.name === region.name ? true : false"
+                        (click)="goRegion(region)">
+                    </app-region-card>
+                </div>
             </div>
         </div>
     
-    <mat-grid-list cols="4" rowHeight="200px" *ngIf="inventory$ | async as inventory">
+    <mat-grid-list [cols]="listColumns" rowHeight="200px" *ngIf="inventory$ | async as inventory">
         <mat-grid-tile *ngFor="let pokemon of inventory">
             <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
         </mat-grid-tile>

@@ -9,12 +9,13 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { appReducers } from './app.reducer';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { LazyLoadImageDirective } from './shared/directives/lazy-load-image.directive';
 import { DirectivesModule } from './shared/directives/directives.module';
+import { HttpModInterceptor } from './shared/interceptors/http-mod.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import { DirectivesModule } from './shared/directives/directives.module';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpModInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RegionCardComponent implements OnInit {
 
   @Input() region: any;
+  @Input() isSelected: boolean;
   public name: string;
 
   constructor() { }

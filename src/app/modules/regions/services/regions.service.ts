@@ -36,6 +36,9 @@ export class RegionsService {
     return response;
   }
 
+  selectRegion(region: any): void {
+    this.store.dispatch(actions.setRegion({region: region}));
+  }
   callRegionsList(url?: string): void {
     this.regionHttpService.getRegionList(url).pipe(
       take(1),

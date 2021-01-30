@@ -2,12 +2,12 @@ import { createReducer, on } from '@ngrx/store';
 import * as actions from '../actions';
 
 export interface UiState {
-    isLoading: boolean; 
+    isLoading: boolean;
 }
 
 export const uiInitialState: UiState = {
     isLoading: false,
-}
+};
 
 const _uiReducer = createReducer(uiInitialState,
 

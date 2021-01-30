@@ -1,7 +1,7 @@
 
-<button mat-button class="region-card">
+<button mat-button class="region-card" [class.mat-elevation-z4]="isSelected">
     <div class="region-container">
         <div class="region-background" [style.backgroundImage]="'url('+region.image+')'"></div>
     </div>
 </button>
-<p class="region-name">{{name}}</p>
+<p class="region-name" [class.region-selected]="isSelected">{{name}}</p>
