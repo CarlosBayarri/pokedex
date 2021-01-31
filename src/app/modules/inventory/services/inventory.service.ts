@@ -26,6 +26,7 @@ export class InventoryService {
     this.inventoryHttpService.getPokemonDetail(url).pipe(
       distinctUntilChanged(),
       tap((pokemon: any) => this.store.dispatch(actions.setDetail({pokemon}))),
+      tap((pokemon: any) => localStorage.setItem('pokemon', JSON.stringify(pokemon))), // Dev purposes
       take(1)
     ).subscribe((value: any) => console.log('[SERVICE] Call pokemon detail'));
   }

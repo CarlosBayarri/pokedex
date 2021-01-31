@@ -1,3 +1,44 @@
 
 <button mat-button [routerLink]="['/inventory']" routerLinkActive="router-link-active" >Volver</button>
-<p *ngIf="pokemon$ | async as pokemon">{{pokemon | json}}</p>
+
+<div class="pokemon-detail-container" *ngIf="pokemon$ | async as pokemon">
+
+    <div>
+        <div class="pokemon-detail-header">
+            <h1 class="pokemon-detail-name">{{pokemon.name}}</h1>
+            <span class="pokemon-detail-order">#{{pokemon.order}}</span>
+        </div>
+        <div class="pokemon-detail-types">
+            <mat-chip-list>
+                <mat-chip *ngFor="let type of pokemon.types">{{type.type.name}}</mat-chip>
+              </mat-chip-list>
+        </div>
+    </div>
+
+    <div class="pokemon-detail-sprites">
+        <div class="carousel">
+            <div class="pokemon-detail-sprites-subcontainer">
+                <img class="pokemon-detail-sprites-back" *ngIf="pokemon.sprites.back_default" appLazyLoadImage [src]="pokemon.sprites.back_default">
+                <img class="pokemon-detail-sprites-front" *ngIf="pokemon.sprites.front_default" appLazyLoadImage [src]="pokemon.sprites.front_default">
+            </div>
+            
+            <!--<div class="pokemon-detail-sprites-subcontainer">
+                <img class="pokemon-detail-sprites-back" *ngIf="pokemon.sprites.back_female" appLazyLoadImage [src]="pokemon.sprites.back_female">
+                <img class="pokemon-detail-sprites-front" *ngIf="pokemon.sprites.front_female" appLazyLoadImage [src]="pokemon.sprites.front_female">
+            </div>
+                    
+            <div class="pokemon-detail-sprites-subcontainer">
+                <img class="pokemon-detail-sprites-back" *ngIf="pokemon.sprites.back_shiny" appLazyLoadImage [src]="pokemon.sprites.back_shiny">
+                <img class="pokemon-detail-sprites-front" *ngIf="pokemon.sprites.front_shiny" appLazyLoadImage [src]="pokemon.sprites.front_shiny">
+            </div>   
+    
+            <div class="pokemon-detail-sprites-subcontainer">
+                <img class="pokemon-detail-sprites-back" *ngIf="pokemon.sprites.back_shiny_female" appLazyLoadImage [src]="pokemon.sprites.back_shiny_female">
+                <img class="pokemon-detail-sprites-front" *ngIf="pokemon.sprites.front_shiny_female" appLazyLoadImage [src]="pokemon.sprites.front_shiny_female">
+            </div>-->
+        </div>
+    </div>
+
+    <p>{{pokemon | json}}</p>
+
+</div>

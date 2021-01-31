@@ -42,9 +42,9 @@ export class ListComponent implements OnInit, OnDestroy {
     } else if (width <= 1024) {
       this.listColumns = 5;
     } else if (width <= 1440) {
-      this.listColumns = 8;
+      this.listColumns = 7;
     } else {
-      this.listColumns = 10;
+      this.listColumns = 9;
     }
   }
   ngOnInit(): void {
