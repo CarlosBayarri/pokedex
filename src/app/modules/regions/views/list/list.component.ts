@@ -23,7 +23,7 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('[INIT] List');
+    console.log('[INIT] Region List');
     this.regionsService.callRegionsList(null);
     this.pokemonResponse$ = this.store.select('regions').pipe(pluck('response'));
   }

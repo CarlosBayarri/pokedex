@@ -1,5 +1,5 @@
 
-<button mat-button class="pokemon-card">
+<button mat-button class="pokemon-card" (click)="goPokemonDetail(pokemon)" [routerLink]="[pokemon.entry_number, pokemon.pokemon_species.url]" routerLinkActive="router-link-active">
     <div class="pokemon-container">
         <img class="pokemon-background" appLazyLoadImage [src]="'https://img.pokemondb.net/artwork/' + pokemon.pokemon_species.name + '.jpg'">
         <p class="pokemon-name">#{{pokemon.entry_number}} {{pokemon.pokemon_species.name}}</p>

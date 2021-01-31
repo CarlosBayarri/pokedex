@@ -13,5 +13,7 @@ export class InventoryHttpService {
   getPokemonList(url?: string): Observable<PokemonResponse> {
     return this.http.get<PokemonResponse>(url);
   }
-
+  getPokemonDetail(url?: string): Observable<any> {
+    return this.http.get<any>(url);
+  }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { map, take, tap } from 'rxjs/operators';
+import { distinctUntilChanged, map, take, tap } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducer';
 import { PokemonResponse } from 'src/app/shared/models/pokemonResponse';
 import { RegionsHttpService } from './regions-http.service';
@@ -37,15 +37,16 @@ export class RegionsService {
   }
 
   selectRegion(region: any): void {
-    this.store.dispatch(actions.setRegion({region: region}));
+    this.store.dispatch(actions.setRegion({region}));
   }
   callRegionsList(url?: string): void {
     this.regionHttpService.getRegionList(url).pipe(
-      take(1),
+      distinctUntilChanged(),
       map((pokemonResponse: PokemonResponse) => this.wrapImages(pokemonResponse)),
       tap((pokemonResponse: PokemonResponse) => this.store.dispatch(actions.setResponseRegions({responseRegions: pokemonResponse}))),
-      tap((pokemonResponse: PokemonResponse) => this.store.dispatch(actions.setRegion({region: pokemonResponse.results[1]})))
-    ).subscribe(console.log);
+      tap((pokemonResponse: PokemonResponse) => this.store.dispatch(actions.setRegion({region: pokemonResponse.results[1]}))),
+      take(1)
+    ).subscribe((value: any) => console.log('[SERVICE] Call region list'));
   }
 
 }
