@@ -9,8 +9,8 @@
             </div>
         </div>
     </div>
-    <mat-grid-list [cols]="listColumns" rowHeight="200px" *ngIf="inventory$ | async as inventory">
-        <mat-grid-tile *ngFor="let pokemon of inventory">
+    <mat-grid-list @list [cols]="listColumns" rowHeight="200px" *ngIf="inventory$ | async as inventory">
+        <mat-grid-tile @items *ngFor="let pokemon of inventory">
             <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
         </mat-grid-tile>
     </mat-grid-list>

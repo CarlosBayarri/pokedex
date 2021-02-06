@@ -1,18 +1,44 @@
+import { animate, animateChild, query, stagger, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import { distinctUntilChanged, map, pluck, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducer';
-import { InventoryService } from '../../services/inventory.service';
-import { BehaviorSubject, combineLatest, concat, merge, Observable, ReplaySubject, Subject, Subscription } from 'rxjs';
 import { PokemonResponse } from 'src/app/shared/models/pokemonResponse';
-import { concatMapTo, distinctUntilChanged, filter, map, mergeMapTo, pluck, switchMap, take, takeUntil, tap } from 'rxjs/operators';
-import { RegionsService } from '../../../regions/services/regions.service';
 import { Region } from 'src/app/shared/models/region';
 import { PokemonIndex } from '../../../../shared/models/pokemon-index';
+import * as actions from '../../../../store/actions';
+import { RegionsService } from '../../../regions/services/regions.service';
+import { InventoryService } from '../../services/inventory.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
+  animations: [
+    // nice stagger effect when showing existing elements
+    trigger('list', [
+      transition(':enter', [
+        // child animation selector + stagger
+        query('@items',
+          stagger(100, animateChild())
+        )
+      ]),
+    ]),
+    trigger('items', [
+      // cubic-bezier for a tiny bouncing feel
+      transition(':enter', [
+        style({ transform: 'scale(0.5)', opacity: 0 }),
+        animate('1s cubic-bezier(.8,-0.6,0.2,1.5)',
+          style({ transform: 'scale(1)', opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ transform: 'scale(1)', opacity: 1, height: '*' }),
+        animate('1s cubic-bezier(.8,-0.6,0.2,1.5)',
+          style({ transform: 'scale(0.5)', opacity: 0, height: '0px', margin: '0px' }))
+      ]),
+    ])
+  ],
 })
 export class ListComponent implements OnInit, OnDestroy {
 
@@ -34,6 +60,7 @@ export class ListComponent implements OnInit, OnDestroy {
 
   goRegion(region: any): void {
     this.regionService.selectRegion(region);
+    this.store.dispatch(actions.unSetPokemonFilter());
   }
 
   changeColumnsList(width: number): void {
