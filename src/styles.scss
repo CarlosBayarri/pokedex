@@ -3,20 +3,52 @@
 @include mat-core();
 
 $mat-pokedex: (
-  50: #cb4f42,
+  50: #f0f0f0,
   100: #f0f0f0, // lighter
-  200: #cb4f42,
+  200: #f0f0f0,
   300: #cb4f42,
   400: #cb4f42,
   500: #cb4f42,
   600: #cb4f42,
+  700: #61160d,
+  800: #61160d,
+  900: #61160d,
+  A100: #cb4f42,
+  A200: #cb4f42,
+  A400: #cb4f42,
+  A700: #61160d,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+$mat-pokedex-dark: (
+  50: #f0f0f0,
+  100: #f0f0f0, // lighter
+  200: #f0f0f0,
+  300: #61160d,
+  400: #61160d,
+  500: #61160d,
+  600: #61160d,
   700: #cb4f42,
   800: #cb4f42,
   900: #cb4f42,
   A100: #cb4f42,
   A200: #cb4f42,
   A400: #cb4f42,
-  A700: #cb4f42,
+  A700: #61160d,
   contrast: (
     50: white,
     100: white,
@@ -35,19 +67,79 @@ $mat-pokedex: (
   )
 );
 
-$pokedex-app-primary: mat-palette($mat-pokedex);
-$pokedex-app-accent:  mat-palette($mat-blue-grey, A200, A100, A400);
-$pokedex-app-warn: mat-palette($mat-red);
+$pokedex-default-primary: mat-palette($mat-pokedex, 500);
+$pokedex-default-accent:  mat-palette($mat-pokedex, 100);
+$pokedex-default-warn: mat-palette($mat-pokedex, 900);
 
-$pokedex-app-theme: mat-light-theme((
+$pokedex-dark-primary: mat-palette($mat-pokedex-dark, 500);
+$pokedex-dark-accent: mat-palette($mat-pokedex-dark, 100);
+$pokedex-dark-warn: mat-palette($mat-pokedex-dark, 900);
+
+$pokedex-default-theme: mat-light-theme((
   color: (
-    primary: $pokedex-app-primary,
-    accent: $pokedex-app-accent,
-    warn: $pokedex-app-warn,  
+    primary: $pokedex-default-primary,
+    accent: $pokedex-default-accent,
+    warn: $pokedex-default-warn,  
   )
 ));
 
-@include angular-material-theme($pokedex-app-theme);
+$pokedex-dark-theme: mat-dark-theme((
+  color: (
+    primary: $pokedex-dark-primary,
+    accent: $pokedex-dark-accent,
+    warn: $pokedex-dark-warn,  
+  )
+));
+
+$deeppurple-amber-theme: mat-light-theme((
+  color: (
+    primary: mat-palette($mat-deep-purple),
+    accent: mat-palette($mat-amber, A200, A100, A400),
+  )
+));
+
+$indigo-pink-theme: mat-light-theme((
+  color: (
+    primary: mat-palette($mat-indigo),
+    accent: mat-palette($mat-pink, A200, A100, A400) 
+  )
+));
+
+$pink-bluegrey-theme: mat-dark-theme((
+  color: (
+    primary: mat-palette($mat-pink, 700, 500, 900),
+    accent: mat-palette($mat-blue-grey, A200, A100, A400),
+  )
+));
+
+$purple-green-theme: mat-dark-theme((
+  color: (
+    primary: mat-palette($mat-purple, 700, 500, 800),
+    accent: mat-palette($mat-green, A200, A100, A400),
+  )
+));
+
+@include angular-material-theme($pokedex-default-theme);
+
+.dark-theme {
+  @include angular-material-theme($pokedex-dark-theme);
+}
+
+.deeppurple-amber {
+  @include angular-material-theme($deeppurple-amber-theme);
+}
+
+.indigo-pink {
+  @include angular-material-theme($indigo-pink-theme);
+}
+
+.pink-bluegrey {
+  @include angular-material-theme($pink-bluegrey-theme);
+}
+
+.purple-green {
+  @include angular-material-theme($purple-green-theme);
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
