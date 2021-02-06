@@ -1,5 +1,5 @@
 
-# ![Cover](https://github.com/CarlosBayarri/pokedex/blob/master/cover.png)
+# ![Cover](https://github.com/CarlosBayarri/pokedex/blob/main/cover.png)
 # Pokedex
 
 This project is a Pokedex.
