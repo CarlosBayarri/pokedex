@@ -44,7 +44,7 @@ export class ListComponent implements OnInit, OnDestroy {
     } else if (width <= 1024) {
       this.listColumns = 5;
     } else if (width <= 1440) {
-      this.listColumns = 7;
+      this.listColumns = 6;
     } else {
       this.listColumns = 9;
     }
