@@ -1,6 +1,6 @@
 
 <mat-toolbar color="primary" class="main-toolbar mat-elevation-z2">
-    Pokedex
+    {{titlePage$ | async}}
 </mat-toolbar>
 <div *ngIf="isLoading$ | async as isLoading">
     <mat-progress-bar mode="indeterminate" class="mat-elevation-z2" *ngIf="isLoading"></mat-progress-bar>

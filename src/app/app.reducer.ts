@@ -5,9 +5,9 @@ import * as reducers from './store/reducers';
  * Main state of the application
  */
 export interface AppState {
-   ui: reducers.UiState,
-   inventory: reducers.InventoryState
-   regions: reducers.RegionState
+   ui: reducers.UiState;
+   inventory: reducers.InventoryState;
+   regions: reducers.RegionState;
 }
 
 /**
@@ -17,4 +17,4 @@ export const appReducers: ActionReducerMap<AppState> = {
    ui: reducers.uiReducer,
    inventory: reducers.inventoryReducer,
    regions: reducers.regionReducer
-}
+};

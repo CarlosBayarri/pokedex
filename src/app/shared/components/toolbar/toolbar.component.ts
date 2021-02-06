@@ -12,11 +12,13 @@ import { pluck } from 'rxjs/operators';
 export class ToolbarComponent implements OnInit {
 
   public isLoading$: Observable<boolean>;
+  public titlePage$: Observable<string>;
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.isLoading$ = this.store.select('ui').pipe(pluck('isLoading'));
+    this.titlePage$ = this.store.select('ui').pipe(pluck('titlePage'));
   }
 
 }
