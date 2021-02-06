@@ -4,6 +4,8 @@ import { PokemonIndex } from '../../shared/models/pokemon-index';
 
 export const setInventory = createAction('[Inventory] setInventory', props<{ inventory: PokemonIndex[]}>());
 export const setDetail = createAction('[Inventory] setDetail', props<{ pokemon: Pokemon}>());
+export const setPokemonFilter = createAction('[Inventory] setFilter', props<{ pokemonFilter: string}>());
 
 export const unSetInventory = createAction('[Inventory] unSetInventory');
 export const unSetDetail = createAction('[Inventory] unSetDetail');
+export const unSetPokemonFilter = createAction('[Inventory] unSetFilter');

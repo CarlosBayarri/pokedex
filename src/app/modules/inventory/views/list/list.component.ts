@@ -2,9 +2,9 @@ import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
 import { InventoryService } from '../../services/inventory.service';
-import { BehaviorSubject, Observable, ReplaySubject, Subscription } from 'rxjs';
+import { BehaviorSubject, combineLatest, concat, merge, Observable, ReplaySubject, Subject, Subscription } from 'rxjs';
 import { PokemonResponse } from 'src/app/shared/models/pokemonResponse';
-import { distinctUntilChanged, pluck, take, takeUntil, tap } from 'rxjs/operators';
+import { concatMapTo, distinctUntilChanged, filter, map, mergeMapTo, pluck, switchMap, take, takeUntil, tap } from 'rxjs/operators';
 import { RegionsService } from '../../../regions/services/regions.service';
 import { Region } from 'src/app/shared/models/region';
 import { PokemonIndex } from '../../../../shared/models/pokemon-index';
@@ -18,9 +18,11 @@ export class ListComponent implements OnInit, OnDestroy {
 
   listColumns: number;
   inventory$: Observable<PokemonIndex[]>;
+  pokemonFilter$: Observable<string>;
   regionResponse$: Observable<PokemonResponse>;
   regionSelected$: Observable<Region>;
   destroy$: ReplaySubject<boolean> = new ReplaySubject(1);
+  private pokemonFilterSubject$: BehaviorSubject<string> = new BehaviorSubject(null);
 
   constructor(private store: Store<AppState>, private inventoryService: InventoryService, private regionService: RegionsService) { }
 
@@ -50,11 +52,30 @@ export class ListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     console.log('[INIT] List');
     this.changeColumnsList(window.screen.width);
+
     this.inventory$ = this.store.select('inventory').pipe(
       distinctUntilChanged(),
-      pluck('inventory'),
+      pluck('pokemonFilter'),
+      takeUntil(this.destroy$),
+      switchMap((pokemonSearch: string) => {
+        return this.store.select('inventory').pipe(
+          pluck('inventory'),
+          map((pokemonIndex: any[]) => {
+            if (pokemonSearch) {
+              return pokemonIndex.filter(index => {
+                if (index.pokemon_species.name.includes(pokemonSearch)) {
+                  return index;
+                }
+              });
+            } else {
+              return pokemonIndex;
+            }
+          })
+        );
+      }),
       takeUntil(this.destroy$)
     );
+
     this.regionResponse$ = this.store.select('regions').pipe(
       tap((regions: any) => {
         if (!regions.responseRegions) {

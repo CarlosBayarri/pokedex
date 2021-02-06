@@ -1,7 +1,15 @@
 
 <mat-toolbar color="primary" class="main-toolbar mat-elevation-z2">
-    {{titlePage$ | async}}
+    <button mat-icon-button><mat-icon>menu</mat-icon></button>
+    <span *ngIf="!openInputSearch; else inputSearch">{{titlePage$ | async}}</span>
+    <button mat-icon-button (click)="enableSearch()"><mat-icon>search</mat-icon></button>
 </mat-toolbar>
 <div *ngIf="isLoading$ | async as isLoading">
     <mat-progress-bar mode="indeterminate" class="mat-elevation-z2" *ngIf="isLoading"></mat-progress-bar>
 </div>
+
+<ng-template #inputSearch>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Search..." id="inputSearchTarget">
+    </mat-form-field>
+</ng-template>
