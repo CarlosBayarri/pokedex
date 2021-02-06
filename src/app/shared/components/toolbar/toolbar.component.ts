@@ -16,12 +16,14 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   public titlePage$: Observable<string>;
   public openInputSearch: boolean;
   private destroy$: Subject<any> = new Subject();
+  public pokemonFilter$: Observable<string>;
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.isLoading$ = this.store.select('ui').pipe(pluck('isLoading'));
     this.titlePage$ = this.store.select('ui').pipe(pluck('titlePage'));
+    this.pokemonFilter$ = this.store.select('inventory').pipe(pluck('pokemonFilter'));
   }
 
   enableSearch(): void {

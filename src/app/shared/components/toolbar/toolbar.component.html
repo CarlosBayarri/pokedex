@@ -10,6 +10,6 @@
 
 <ng-template #inputSearch>
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="Search..." id="inputSearchTarget">
+        <input matInput placeholder="Search..." id="inputSearchTarget" [value]="pokemonFilter$ | async">
     </mat-form-field>
 </ng-template>
