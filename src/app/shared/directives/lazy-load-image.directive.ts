@@ -5,7 +5,7 @@ import { AfterViewInit, Directive, ElementRef, HostBinding, Input } from '@angul
 })
 export class LazyLoadImageDirective implements AfterViewInit {
 
-  @HostBinding('attr.src') srcAttr = null;
+  @HostBinding('attr.src') srcAttr = 'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
   @Input() src: string;
 
   constructor(private el: ElementRef) {}
