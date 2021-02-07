@@ -122,24 +122,64 @@ $purple-green-theme: mat-dark-theme((
 @include angular-material-theme($pokedex-default-theme);
 
 .dark-theme {
-  @include angular-material-theme($pokedex-dark-theme);
+  @include angular-material-color($pokedex-dark-theme);
 }
 
 .deeppurple-amber {
-  @include angular-material-theme($deeppurple-amber-theme);
+  @include angular-material-color($deeppurple-amber-theme);
 }
 
 .indigo-pink {
-  @include angular-material-theme($indigo-pink-theme);
+  @include angular-material-color($indigo-pink-theme);
 }
 
 .pink-bluegrey {
-  @include angular-material-theme($pink-bluegrey-theme);
+  @include angular-material-color($pink-bluegrey-theme);
 }
 
 .purple-green {
-  @include angular-material-theme($purple-green-theme);
+  @include angular-material-color($purple-green-theme);
 }
+
+// Types
+
+$normal: #A8A77A;
+$fire:  #EE8130;
+$water:  #6390F0;
+$electric:  #F7D02C;
+$grass:  #7AC74C;
+$ice:  #96D9D6;
+$fighting:  #C22E28;
+$poison:  #A33EA1;
+$ground:  #E2BF65;
+$flying:  #A98FF3;
+$psychic:  #F95587;
+$bug:  #A6B91A;
+$rock:  #B6A136;
+$ghost:  #735797;
+$dragon:  #6F35FC;
+$dark:  #705746;
+$steel:  #B7B7CE;
+$fairy:  #D685AD;
+
+.normal-type { background-color: $normal; }
+.fire-type { background-color: $fire; }
+.water-type { background-color: $water; }
+.electric-type { background-color: $electric; }
+.grass-type { background-color: $grass; }
+.ice-type { background-color: $ice; }
+.fighting-type { background-color: $fighting; }
+.poison-type { background-color: $poison; }
+.ground-type { background-color: $ground; }
+.flying-type { background-color: $flying; }
+.psychic-type { background-color: $psychic; }
+.bug-type { background-color: $bug; }
+.rock-type { background-color: $rock; }
+.ghost-type { background-color: $ghost; }
+.dragon-type { background-color: $dragon; }
+.dark-type { background-color: $dark; }
+.steel-type { background-color: $steel; }
+.fairy-type { background-color: $fairy; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -158,4 +198,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     max-width: 1280px;
     overflow: hidden;
     position: relative;
+}
+img[src=""] { content:url("data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="); }
+
+.no-white-background-png {
+  mix-blend-mode: multiply;
 }
