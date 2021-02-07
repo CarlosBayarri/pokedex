@@ -1,79 +1,112 @@
 
-.pokemon-detail-container {
-    position:relative;
-    max-width: 600px;
-    margin: auto;
 
-    .pokemon-detail-header {
-        display: flex;
-        flex-direction: row;
-        .pokemon-detail-name {
-            width: 100%;
-            text-transform: capitalize;
-            font-size: xx-large;
-        }
-        .pokemon-detail-order {
-            color: grey;
-            font-size: xx-large;
-        }
-    }
 
-    .pokemon-detail-sprites {
+.pokemon-detail {
+
+
+    .pokemon-detail-container {
         position:relative;
-        width: 200px;
-        height: 200px;
 
-        .pokemon-detail-sprites-subcontainer {
+        .pokemon-detail-header {            
+            padding: 5%;
+            color: white;
+            box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 20%);
             position: relative;
-    
-            .pokemon-detail-sprites-front {
-                position: absolute;
-                z-index: 3;
-                min-width: 200px;
-                min-height: 200px;
-                -moz-transition: all 0.8s;
-                -o-transition: all 0.8s;
-                -webkit-transition: all 0.8s;
-                transition: all 0.8s;
-                -moz-backface-visibility: hidden;
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
+
+            .mat-chip.mat-standard-chip {
+                background-color: rgb(0 0 0 / 15%);
+                color: rgb(255 255 255);
             }
-            .pokemon-detail-sprites-back {
-                position: absolute;
-                z-index: 2;
-                min-width: 200px;
-                min-height: 200px;
-                -moz-transform: rotateY(180deg);
-                -ms-transform: rotateY(180deg);
-                -webkit-transform: rotateY(180deg);
-                transform: rotateY(180deg);
-                -moz-transition: all 0.8s;
-                -o-transition: all 0.8s;
-                -webkit-transition: all 0.8s;
-                transition: all 0.8s;
-                -moz-backface-visibility: hidden;
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
+            .aux-header {
+                max-width: 600px;
+                margin: auto;  
             }
+            .pokemon-detail-subheader {
+                display: flex;
+                flex-direction: row;
+                .pokemon-detail-name {
+                    width: 100%;
+                    text-transform: capitalize;
+                    font-size: xx-large;
+                }
+                .pokemon-detail-order {
+                    font-size: xx-large;
+                }
+            }
+            .pokemon-detail-image {
+                display: flex;
+                .pokemon-image {
+                    margin: auto;
+                }
+            }
+            .pokemon-detail-sprites {
+                position:relative;
+                width: 200px;
+                height: 200px;
         
-            &:hover .pokemon-detail-sprites-front {
-                -moz-transform: rotateY(180deg);
-                -ms-transform: rotateY(180deg);
-                -webkit-transform: rotateY(180deg);
-                transform: rotateY(180deg);
-            }
+                .pokemon-detail-sprites-subcontainer {
+                    position: relative;
             
-            &:hover .pokemon-detail-sprites-back {
-                -moz-transform: rotateY(0deg);
-                -ms-transform: rotateY(0deg);
-                -webkit-transform: rotateY(0deg);
-                transform: rotateY(0deg);
-                z-index: 3;
+                    .pokemon-detail-sprites-front {
+                        position: absolute;
+                        z-index: 3;
+                        min-width: 200px;
+                        min-height: 200px;
+                        -moz-transition: all 0.8s;
+                        -o-transition: all 0.8s;
+                        -webkit-transition: all 0.8s;
+                        transition: all 0.8s;
+                        -moz-backface-visibility: hidden;
+                        -webkit-backface-visibility: hidden;
+                        backface-visibility: hidden;
+                    }
+                    .pokemon-detail-sprites-back {
+                        position: absolute;
+                        z-index: 2;
+                        min-width: 200px;
+                        min-height: 200px;
+                        -moz-transform: rotateY(180deg);
+                        -ms-transform: rotateY(180deg);
+                        -webkit-transform: rotateY(180deg);
+                        transform: rotateY(180deg);
+                        -moz-transition: all 0.8s;
+                        -o-transition: all 0.8s;
+                        -webkit-transition: all 0.8s;
+                        transition: all 0.8s;
+                        -moz-backface-visibility: hidden;
+                        -webkit-backface-visibility: hidden;
+                        backface-visibility: hidden;
+                    }
+                
+                    &:hover .pokemon-detail-sprites-front {
+                        -moz-transform: rotateY(180deg);
+                        -ms-transform: rotateY(180deg);
+                        -webkit-transform: rotateY(180deg);
+                        transform: rotateY(180deg);
+                    }
+                    
+                    &:hover .pokemon-detail-sprites-back {
+                        -moz-transform: rotateY(0deg);
+                        -ms-transform: rotateY(0deg);
+                        -webkit-transform: rotateY(0deg);
+                        transform: rotateY(0deg);
+                        z-index: 3;
+                    }
+            
+                }
+            
             }
-    
         }
     
+        .pokemon-detail-body {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+        }
+    
+        
+    
     }
-
 }
+

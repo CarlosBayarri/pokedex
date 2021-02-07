@@ -201,6 +201,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 img[src=""] { content:url("data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="); }
 
-.no-white-background-png {
+.mix-blend-mode-multiply {
   mix-blend-mode: multiply;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
