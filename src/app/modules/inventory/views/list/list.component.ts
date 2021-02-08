@@ -16,17 +16,14 @@ import { InventoryService } from '../../services/inventory.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   animations: [
-    // nice stagger effect when showing existing elements
     trigger('list', [
       transition(':enter', [
-        // child animation selector + stagger
         query('@items',
           stagger(100, animateChild())
         )
       ]),
     ]),
     trigger('items', [
-      // cubic-bezier for a tiny bouncing feel
       transition(':enter', [
         style({ transform: 'scale(0.5)', opacity: 0 }),
         animate('1s cubic-bezier(.8,-0.6,0.2,1.5)',

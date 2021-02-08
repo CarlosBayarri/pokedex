@@ -18,29 +18,51 @@
                     <img class="pokemon-image mix-blend-mode-multiply" appLazyLoadImage [src]="'https://img.pokemondb.net/artwork/' + pokemon.name + '.jpg'">
                 </div>
             </div>
-            <!--<div class="pokemon-detail-sprites">
-                <div class="carousel">
-                    <div class="pokemon-detail-sprites-subcontainer">
-                        <img class="pokemon-detail-sprites-back" *ngIf="pokemon.sprites.back_default" appLazyLoadImage [src]="pokemon.sprites.back_default">
-                        <img class="pokemon-detail-sprites-front" *ngIf="pokemon.sprites.front_default" appLazyLoadImage [src]="pokemon.sprites.front_default">
-                    </div>
-                    <div class="pokemon-detail-sprites-subcontainer">
-                        <img class="pokemon-detail-sprites-back" *ngIf="pokemon.sprites.back_female" appLazyLoadImage [src]="pokemon.sprites.back_female">
-                        <img class="pokemon-detail-sprites-front" *ngIf="pokemon.sprites.front_female" appLazyLoadImage [src]="pokemon.sprites.front_female">
-                    </div>
-                    <div class="pokemon-detail-sprites-subcontainer">
-                        <img class="pokemon-detail-sprites-back" *ngIf="pokemon.sprites.back_shiny" appLazyLoadImage [src]="pokemon.sprites.back_shiny">
-                        <img class="pokemon-detail-sprites-front" *ngIf="pokemon.sprites.front_shiny" appLazyLoadImage [src]="pokemon.sprites.front_shiny">
-                    </div>   
-                    <div class="pokemon-detail-sprites-subcontainer">
-                        <img class="pokemon-detail-sprites-back" *ngIf="pokemon.sprites.back_shiny_female" appLazyLoadImage [src]="pokemon.sprites.back_shiny_female">
-                        <img class="pokemon-detail-sprites-front" *ngIf="pokemon.sprites.front_shiny_female" appLazyLoadImage [src]="pokemon.sprites.front_shiny_female">
-                    </div>
-                </div>
-            </div>-->
         </div>
     
         <div class="pokemon-detail-body">
+            <div class="pokemon-detail-sprites">
+                <div class="carousel">
+                    <div class="pokemon-detail-sprites-subcontainer" *ngIf="pokemon.sprites.back_default && pokemon.sprites.front_default">
+                        <img class="pokemon-detail-sprites-back" *ngIf="pokemon.sprites.back_default" appLazyLoadImage [src]="pokemon.sprites.back_default">
+                        <img class="pokemon-detail-sprites-front" *ngIf="pokemon.sprites.front_default" appLazyLoadImage [src]="pokemon.sprites.front_default">
+                        <mat-icon>male</mat-icon>
+                    </div>
+                    <div class="pokemon-detail-sprites-subcontainer" *ngIf="pokemon.sprites.back_female && pokemon.sprites.front_female">
+                        <img class="pokemon-detail-sprites-back" *ngIf="pokemon.sprites.back_female" appLazyLoadImage [src]="pokemon.sprites.back_female">
+                        <img class="pokemon-detail-sprites-front" *ngIf="pokemon.sprites.front_female" appLazyLoadImage [src]="pokemon.sprites.front_female">
+                        <mat-icon>female</mat-icon>
+                    </div>
+                    <div class="pokemon-detail-sprites-subcontainer" *ngIf="pokemon.sprites.back_shiny && pokemon.sprites.front_shiny">
+                        <img class="pokemon-detail-sprites-back" *ngIf="pokemon.sprites.back_shiny" appLazyLoadImage [src]="pokemon.sprites.back_shiny">
+                        <img class="pokemon-detail-sprites-front" *ngIf="pokemon.sprites.front_shiny" appLazyLoadImage [src]="pokemon.sprites.front_shiny">
+                        <mat-icon>male auto_awesome</mat-icon>
+                    </div>   
+                    <div class="pokemon-detail-sprites-subcontainer" *ngIf="pokemon.sprites.back_shiny_female && pokemon.sprites.front_shiny_female">
+                        <img class="pokemon-detail-sprites-back" *ngIf="pokemon.sprites.back_shiny_female" appLazyLoadImage [src]="pokemon.sprites.back_shiny_female">
+                        <img class="pokemon-detail-sprites-front" *ngIf="pokemon.sprites.front_shiny_female" appLazyLoadImage [src]="pokemon.sprites.front_shiny_female">
+                        <mat-icon>female auto_awesome</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="main-stats">
+                <div class="main-stats-row">
+                    <div mat-line class="stat-title">Species</div>
+                    <div mat-line class="stat-value">   </div>
+                </div>
+                <div class="main-stats-row">
+                    <div mat-line class="stat-title">Weight</div>
+                    <div mat-line class="stat-value"> {{pokemon.weight}} Kg </div>
+                </div>
+                <div class="main-stats-row">
+                    <div mat-line class="stat-title">Height</div>
+                    <div mat-line class="stat-value"> {{pokemon.height}} m </div>
+                </div>
+                <div class="main-stats-row">
+                    <div mat-line class="stat-title">Habilities</div>
+                    <div mat-line class="stat-value">   </div>
+                </div>
+            </div>
             <p style="white-space: pre; overflow: hidden;">{{pokemon | json}}</p>
         </div>
     

@@ -44,64 +44,6 @@
                     }
                 }
             }
-            
-            .pokemon-detail-sprites {
-                position:relative;
-                width: 200px;
-                height: 200px;
-        
-                .pokemon-detail-sprites-subcontainer {
-                    position: relative;
-            
-                    .pokemon-detail-sprites-front {
-                        position: absolute;
-                        z-index: 3;
-                        min-width: 200px;
-                        min-height: 200px;
-                        -moz-transition: all 0.8s;
-                        -o-transition: all 0.8s;
-                        -webkit-transition: all 0.8s;
-                        transition: all 0.8s;
-                        -moz-backface-visibility: hidden;
-                        -webkit-backface-visibility: hidden;
-                        backface-visibility: hidden;
-                    }
-                    .pokemon-detail-sprites-back {
-                        position: absolute;
-                        z-index: 2;
-                        min-width: 200px;
-                        min-height: 200px;
-                        -moz-transform: rotateY(180deg);
-                        -ms-transform: rotateY(180deg);
-                        -webkit-transform: rotateY(180deg);
-                        transform: rotateY(180deg);
-                        -moz-transition: all 0.8s;
-                        -o-transition: all 0.8s;
-                        -webkit-transition: all 0.8s;
-                        transition: all 0.8s;
-                        -moz-backface-visibility: hidden;
-                        -webkit-backface-visibility: hidden;
-                        backface-visibility: hidden;
-                    }
-                
-                    &:hover .pokemon-detail-sprites-front {
-                        -moz-transform: rotateY(180deg);
-                        -ms-transform: rotateY(180deg);
-                        -webkit-transform: rotateY(180deg);
-                        transform: rotateY(180deg);
-                    }
-                    
-                    &:hover .pokemon-detail-sprites-back {
-                        -moz-transform: rotateY(0deg);
-                        -ms-transform: rotateY(0deg);
-                        -webkit-transform: rotateY(0deg);
-                        transform: rotateY(0deg);
-                        z-index: 3;
-                    }
-            
-                }
-            
-            }
         }
     
         .pokemon-detail-body {
@@ -109,6 +51,115 @@
             display: flex;
             flex-direction: column;
             padding: 2rem;
+            font-size: large;
+
+            .pokemon-detail-sprites {
+                position:relative;
+                width: 100%;
+                height: 200px;
+        
+                .carousel {
+                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    height: 100%;
+
+                    .pokemon-detail-sprites-subcontainer {
+                        position: relative;
+                        width: inherit;
+                        height: inherit;
+                        max-width: 200px;
+                        max-height: 200px;
+                        margin: auto;
+                        .mat-icon {
+                            position: absolute;
+                            margin: auto;
+                            display: block;
+                            padding-left: 40%;
+                            padding-right: 40%;
+                            bottom: 0;
+                        }
+                        .pokemon-detail-sprites-front {
+                            position: absolute;
+                            z-index: 3;
+                            min-width: 200px;
+                            min-height: 200px;
+                            -moz-transition: all 0.8s;
+                            -o-transition: all 0.8s;
+                            -webkit-transition: all 0.8s;
+                            transition: all 0.8s;
+                            -moz-backface-visibility: hidden;
+                            -webkit-backface-visibility: hidden;
+                            backface-visibility: hidden;
+                        }
+                        .pokemon-detail-sprites-back {
+                            position: absolute;
+                            z-index: 2;
+                            min-width: 200px;
+                            min-height: 200px;
+                            -moz-transform: rotateY(180deg);
+                            -ms-transform: rotateY(180deg);
+                            -webkit-transform: rotateY(180deg);
+                            transform: rotateY(180deg);
+                            -moz-transition: all 0.8s;
+                            -o-transition: all 0.8s;
+                            -webkit-transition: all 0.8s;
+                            transition: all 0.8s;
+                            -moz-backface-visibility: hidden;
+                            -webkit-backface-visibility: hidden;
+                            backface-visibility: hidden;
+                        }
+                    
+                        &:hover .pokemon-detail-sprites-front {
+                            -moz-transform: rotateY(180deg);
+                            -ms-transform: rotateY(180deg);
+                            -webkit-transform: rotateY(180deg);
+                            transform: rotateY(180deg);
+                        }
+                        
+                        &:hover .pokemon-detail-sprites-back {
+                            -moz-transform: rotateY(0deg);
+                            -ms-transform: rotateY(0deg);
+                            -webkit-transform: rotateY(0deg);
+                            transform: rotateY(0deg);
+                            z-index: 3;
+                        }
+                
+                    }
+                }
+               
+            
+            }
+
+            .main-stats {
+                display: flex;
+                justify-content: space-between;
+
+                font-family: "Flexo-Medium",arial,sans-serif;
+                color: #212121;
+                font-size: 112.5%;
+                line-height: 150%;
+
+                display: flex;
+                flex-direction: column;
+                max-width: 50vw;
+                padding: inherit;
+                
+                .main-stats-row {
+                    display: flex;
+                    flex-direction: row;
+                    line-height: 2em;
+
+                    .stat-title {
+                        color: grey;
+                        margin-right: 15px;
+                    }
+                    .stat-value {
+                        
+                    }
+                }
+            }
         }
     
         
