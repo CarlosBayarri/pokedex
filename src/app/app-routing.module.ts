@@ -5,8 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'inventory',
+    redirectTo: 'cover',
     pathMatch: 'full'
+  },
+  { 
+    path: 'cover',
+    loadChildren: () => import('./modules/cover/cover.module').then(m => m.CoverModule)
   },
   { 
     path: 'inventory',
