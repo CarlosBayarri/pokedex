@@ -7,7 +7,7 @@
     .pokemon-detail-container {
         position:relative;
 
-        .pokemon-detail-header {            
+        .pokemon-detail-header, .pokemon-detail-header-aux {            
             padding: 5%;
             color: white;
             box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 20%);
@@ -46,6 +46,22 @@
             }
         }
     
+        .pokemon-detail-header-aux {
+            display: none;
+        }
+        .float-header {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+
+            .pokemon-detail-image {
+                display: none;
+            }
+            
+        }
         .pokemon-detail-body {
             background-color: white;
             display: flex;

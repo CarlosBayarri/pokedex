@@ -45,7 +45,6 @@ export class ListComponent implements OnInit, OnDestroy {
   regionResponse$: Observable<PokemonResponse>;
   regionSelected$: Observable<Region>;
   destroy$: ReplaySubject<boolean> = new ReplaySubject(1);
-  private pokemonFilterSubject$: BehaviorSubject<string> = new BehaviorSubject(null);
 
   constructor(private store: Store<AppState>, private inventoryService: InventoryService, private regionService: RegionsService) { }
 
@@ -77,49 +76,51 @@ export class ListComponent implements OnInit, OnDestroy {
     console.log('[INIT] List');
     this.changeColumnsList(window.screen.width);
 
-    this.inventory$ = this.store.select('inventory').pipe(
-      distinctUntilChanged(),
-      pluck('pokemonFilter'),
-      takeUntil(this.destroy$),
-      switchMap((pokemonSearch: string) => {
-        return this.store.select('inventory').pipe(
-          pluck('inventory'),
-          map((pokemonIndex: any[]) => {
-            if (pokemonSearch) {
-              return pokemonIndex.filter(index => {
-                if (index.pokemon_species.name.includes(pokemonSearch)) {
-                  return index;
-                }
-              });
-            } else {
-              return pokemonIndex;
-            }
-          })
-        );
-      }),
-      takeUntil(this.destroy$)
-    );
-
-    this.regionResponse$ = this.store.select('regions').pipe(
-      tap((regions: any) => {
-        if (!regions.responseRegions) {
-          this.regionService.callRegionsList(null);
-        }
-      }),
-      distinctUntilChanged(),
-      pluck('responseRegions'),
-      takeUntil(this.destroy$)
-    );
-    this.regionSelected$ = this.store.select('regions').pipe(
-      distinctUntilChanged(),
-      pluck('region'),
-      takeUntil(this.destroy$)
-    );
-    this.regionSelected$.subscribe((region: any) => {
-        if (region) {
-          this.inventoryService.callPokemonList(region.url);
-        }
+    setTimeout(() => {
+      this.inventory$ = this.store.select('inventory').pipe(
+        distinctUntilChanged(),
+        pluck('pokemonFilter'),
+        takeUntil(this.destroy$),
+        switchMap((pokemonSearch: string) => {
+          return this.store.select('inventory').pipe(
+            pluck('inventory'),
+            map((pokemonIndex: any[]) => {
+              if (pokemonSearch) {
+                return pokemonIndex.filter(index => {
+                  if (index.pokemon_species.name.includes(pokemonSearch)) {
+                    return index;
+                  }
+                });
+              } else {
+                return pokemonIndex;
+              }
+            })
+          );
+        }),
+        takeUntil(this.destroy$)
+      );
+  
+      this.regionResponse$ = this.store.select('regions').pipe(
+        tap((regions: any) => {
+          if (!regions.responseRegions) {
+            this.regionService.callRegionsList(null);
+          }
+        }),
+        distinctUntilChanged(),
+        pluck('responseRegions'),
+        takeUntil(this.destroy$)
+      );
+      this.regionSelected$ = this.store.select('regions').pipe(
+        distinctUntilChanged(),
+        pluck('region'),
+        takeUntil(this.destroy$)
+      );
+      this.regionSelected$.subscribe((region: any) => {
+          if (region) {
+            this.inventoryService.callPokemonList(region.url);
+          }
       });
+    }, 0);
   }
 
   ngOnDestroy(): void {

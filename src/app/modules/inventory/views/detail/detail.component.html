@@ -19,7 +19,19 @@
                 </div>
             </div>
         </div>
-    
+        <div [className]="pokemon.types[0].type.name + '-type' + ' pokemon-detail-header-aux'">
+            <div class="aux-header">
+                <div class="pokemon-detail-subheader">
+                    <h1 class="pokemon-detail-name">{{pokemon.name}}</h1>
+                    <span class="pokemon-detail-order">#{{pokemon.order}}</span>
+                </div>
+                <div class="pokemon-detail-types">
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let type of pokemon.types" class="capitalize">{{type.type.name}}</mat-chip>
+                      </mat-chip-list>
+                </div>
+            </div>
+        </div>
         <div class="pokemon-detail-body">
             <div class="pokemon-detail-sprites">
                 <div class="carousel">
