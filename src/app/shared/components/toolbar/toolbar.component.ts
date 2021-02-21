@@ -4,6 +4,7 @@ import { AppState } from 'src/app/app.reducer';
 import { fromEvent, Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, pluck, takeUntil, tap } from 'rxjs/operators';
 import { setPokemonFilter } from '../../../store/actions/inventory.actions';
+import { changeSidebar } from '../../../store/actions/ui.actions';
 
 @Component({
   selector: 'app-toolbar',
@@ -24,6 +25,10 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     this.isLoading$ = this.store.select('ui').pipe(pluck('isLoading'));
     this.titlePage$ = this.store.select('ui').pipe(pluck('titlePage'));
     this.pokemonFilter$ = this.store.select('inventory').pipe(pluck('pokemonFilter'));
+  }
+
+  changeSidebar(): void {
+    this.store.dispatch(changeSidebar());
   }
 
   enableSearch(): void {

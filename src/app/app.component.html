@@ -1,5 +1,14 @@
 
-<app-toolbar></app-toolbar>
 
-<router-outlet></router-outlet>
-
+<mat-sidenav-container class="sidenav-container" hasBackdrop="true" (backdropClick)="changeShowSidebar(true)">
+    <mat-sidenav mode="over" *ngIf="showSidebar$ | async as showSidebar" [opened]="showSidebar">
+        <mat-action-list>
+            <button mat-list-item [routerLink]="['/inventory']" (click)="changeShowSidebar(true)"> <mat-icon>catching_pokemon</mat-icon> Pokedex </button>
+            <button mat-list-item [routerLink]="['/']" (click)="changeShowSidebar(true)">  <mat-icon>exit</mat-icon> Exit </button>
+        </mat-action-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-toolbar></app-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

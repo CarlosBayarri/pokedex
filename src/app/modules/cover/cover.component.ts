@@ -28,7 +28,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
           query('.cover-white', [
             style({transform: 'translateY(0)'}),
             stagger(0, [
-              animate('1000ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'translateY(-50vh)' }))
+              animate('1000ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'translateY(50vh)' }))
             ])
           ]),
           query('.cover-red, .cover-black', [

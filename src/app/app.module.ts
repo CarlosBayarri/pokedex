@@ -13,7 +13,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { LazyLoadImageDirective } from './shared/directives/lazy-load-image.directive';
 import { DirectivesModule } from './shared/directives/directives.module';
 import { HttpModInterceptor } from './shared/interceptors/http-mod.interceptor';
 
